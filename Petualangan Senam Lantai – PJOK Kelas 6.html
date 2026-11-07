@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Petualangan Senam Lantai – PJOK Kelas 6</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF4FF;--card:#fff;--ink:#12305F;--blue:#1E6FE0;--sky:#CFE5FF;--yel:#FFC928;--yel2:#FFF3C2;--ok:#1E9E5A;--no:#E0533E;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1D3A;--card:#14305C;--ink:#EEF5FF;--sky:#1F4580;--yel2:#4A3F10;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:800 17px/1.5 Nunito,system-ui,sans-serif;min-height:100vh}
+h1,h2,h3{font-family:"Baloo 2",Nunito,system-ui,sans-serif;margin:.2em 0;line-height:1.15}
+h1{font-size:clamp(30px,7vw,52px)}h2{font-size:clamp(24px,5vw,34px)}h3{font-size:20px}
+p{font-weight:600;margin:.4em 0}
+.wrap{max-width:860px;margin:0 auto;padding:14px 14px 90px}
+nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+nav button{border:0;background:var(--sky);color:var(--ink);border-radius:99px;padding:8px 12px;font:inherit;font-size:14px;cursor:pointer}
+nav button.on{background:var(--blue);color:#fff}
+.card{background:var(--card);border-radius:28px;padding:22px;box-shadow:0 6px 0 var(--sky);animation:pop .4s ease}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:none;opacity:1}}
+.hero{text-align:center;background:linear-gradient(180deg,var(--blue),#4A9BFF);color:#fff;box-shadow:0 6px 0 #1553AD}
+.hero .tag{display:inline-block;background:var(--yel);color:#12305F;border-radius:99px;padding:4px 16px}
+.kids{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+.kids svg{width:min(28vw,170px);animation:bob 2.4s ease-in-out infinite}
+.kids svg:nth-child(2){animation-delay:.4s}.kids svg:nth-child(3){animation-delay:.8s}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+.id{background:#ffffff22;border-radius:18px;padding:10px 16px;display:inline-block;text-align:left;margin-top:8px}
+.btn{border:0;border-radius:99px;padding:12px 26px;font:inherit;font-weight:800;background:var(--yel);color:#12305F;cursor:pointer;box-shadow:0 4px 0 #C99A00;transition:transform .1s}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.btn.alt{background:var(--blue);color:#fff;box-shadow:0 4px 0 #1553AD}
+.btn:disabled{opacity:.4;cursor:default}
+.goal{display:flex;gap:12px;align-items:flex-start;background:var(--yel2);border-radius:18px;padding:12px 14px;margin:10px 0}
+.goal b{font-size:28px;line-height:1}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.tabs button{flex:1;min-width:120px;border:3px solid var(--sky);background:var(--card);color:var(--ink);border-radius:18px;padding:8px;font:inherit;cursor:pointer}
+.tabs button.on{background:var(--yel);border-color:var(--yel);color:#12305F}
+.mat{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:16px;align-items:center}
+@media(max-width:600px){.mat{grid-template-columns:1fr}}
+.mat svg{width:100%;background:var(--sky);border-radius:22px}
+ol,ul{padding-left:22px;font-weight:600;margin:.3em 0}li{margin:4px 0}
+.warn{background:var(--yel2);border-left:8px solid var(--yel);border-radius:12px;padding:8px 12px;font-weight:600;margin-top:8px}
+.steps{display:grid;gap:10px;margin:12px 0}
+.step{border:3px solid var(--sky);background:var(--card);color:var(--ink);border-radius:18px;padding:12px;font:600 16px Nunito,sans-serif;text-align:left;cursor:pointer;transition:.2s}
+.step.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.msg{min-height:28px;font-weight:800}
+.chk{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:14px;background:var(--sky);margin:6px 0;font-weight:600;cursor:pointer}
+.chk input{width:22px;height:22px;accent-color:var(--blue)}
+.stars{font-size:30px;letter-spacing:4px}
+.bar{height:14px;background:var(--sky);border-radius:99px;overflow:hidden;margin:6px 0 12px}
+.bar i{display:block;height:100%;background:var(--yel);transition:width .4s}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;border:3px solid var(--sky);background:var(--card);color:var(--ink);border-radius:18px;padding:12px 14px;font:600 17px Nunito,sans-serif;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt.ok{background:var(--ok);border-color:var(--ok);color:#fff;animation:pop .4s}
+.opt.no{background:var(--no);border-color:var(--no);color:#fff;animation:shake .4s}
+.fb{border-radius:18px;padding:12px 14px;margin:10px 0;font-weight:600}
+.fb.ok{background:#D8F5E5;color:#0E5B33}.fb.no{background:#FFE3DD;color:#7A2415}
+.moods{display:flex;gap:10px;flex-wrap:wrap}
+.moods button{font-size:34px;border:3px solid var(--sky);background:var(--card);border-radius:20px;padding:6px 14px;cursor:pointer}
+.moods button.on{border-color:var(--yel);background:var(--yel2);transform:scale(1.1)}
+textarea{width:100%;border-radius:16px;border:3px solid var(--sky);background:var(--card);color:var(--ink);padding:10px;font:600 16px Nunito,sans-serif;min-height:80px}
+.foot{display:flex;justify-content:space-between;margin-top:16px}
+.center{text-align:center}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:4px solid var(--yel);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav id="nav" aria-label="Menu"></nav>
+<main id="app"></main>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const SK='#F2B48C',PA='#1E6FE0',SH='#FFC928',HR='#3B2A20';
+function kid(p){
+ const g='stroke-linecap="round" fill="none"';
+ const P={
+ hand:`<path d="M100 128V78" stroke="${SH}" stroke-width="20" ${g}/><path d="M100 128L80 172M100 128L120 172" stroke="${SK}" stroke-width="9" ${g}/><path d="M100 78L88 28M100 78L112 28" stroke="${PA}" stroke-width="11" ${g}/><circle cx="100" cy="150" r="13" fill="${SK}"/><path d="M88 146a13 13 0 0 1 24 0z" fill="${HR}"/>`,
+ roll:`<path d="M78 140Q118 80 152 138" stroke="${SH}" stroke-width="22" ${g}/><path d="M152 138Q156 172 122 166" stroke="${PA}" stroke-width="12" ${g}/><path d="M92 128Q96 168 122 160" stroke="${SK}" stroke-width="9" ${g}/><circle cx="70" cy="138" r="13" fill="${SK}"/><path d="M58 134a13 13 0 0 1 22-8z" fill="${HR}"/><path d="M60 70q30-22 62-6" stroke="${PA}" stroke-width="5" ${g}/><path d="M116 56l10 8-12 4" stroke="${PA}" stroke-width="5" ${g}/>`,
+ wheel:`<path d="M92 128L102 84" stroke="${SH}" stroke-width="20" ${g}/><path d="M92 128L72 172M92 128L114 172" stroke="${SK}" stroke-width="9" ${g}/><path d="M102 84L58 40M102 84L146 46" stroke="${PA}" stroke-width="11" ${g}/><circle cx="86" cy="150" r="13" fill="${SK}"/><path d="M74 146a13 13 0 0 1 24 0z" fill="${HR}"/>`};
+ return `<svg viewBox="0 0 200 200" role="img" aria-label="Murid sedang berolahraga"><rect x="10" y="172" width="180" height="16" rx="8" fill="${SH}"/>${P[p]}</svg>`;
+}
+const SEC=['🏠 Mulai','🎯 Tujuan','📖 Materi','🎮 Aktivitas','📝 Kuis','💭 Refleksi'];
+const MAT={
+hand:{n:'Berdiri dengan Tangan',e:'🙌',k:'Tubuh lurus terbalik, bertumpu pada kedua telapak tangan.',s:['Berdiri tegak, kedua tangan lurus ke atas.','Langkahkan satu kaki ke depan, lalu letakkan telapak tangan selebar bahu di matras.','Ayunkan kaki belakang ke atas, susul kaki satunya.','Luruskan badan, tahan 3 detik, lalu turun pelan.'],t:'Siku lurus, perut kencang, pandangan ke matras di antara kedua tangan. Minta temanmu memegang kakimu saat belajar.'},
+roll:{n:'Guling Lenting',e:'🌀',k:'Berguling ke depan lalu melenting dengan dorongan tangan sampai berdiri.',s:['Jongkok, kedua tangan menapak di matras.','Dagu menempel dada, dorong kaki, lalu berguling lewat tengkuk dan punggung.','Saat pinggul melewati kepala, ayunkan kaki lurus ke depan atas.','Tolak matras dengan tangan, lenting, dan berdiri tegak.'],t:'Jangan bertumpu di kepala! Wajib memakai matras dan didampingi guru.'},
+wheel:{n:'Meroda',e:'🎡',k:'Berputar ke samping seperti roda: tangan, tangan, kaki, kaki.',s:['Berdiri menyamping, kedua tangan lurus ke atas.','Langkah ke samping, letakkan tangan pertama lalu tangan kedua di matras.','Ayunkan kaki terbuka lebar di atas, lengan tetap lurus.','Kaki mendarat satu per satu, berdiri tegak.'],t:'Pandangan ke tangan, lengan dan kaki lurus seperti jari-jari roda.'}};
+const Q=[
+['Alat yang membuat senam lantai lebih aman adalah …',['Matras','Papan kayu','Karpet licin'],0,'Matras empuk melindungi tubuhmu saat jatuh atau berguling.'],
+['Sebelum senam lantai kita perlu pemanasan.',['Benar','Salah'],0,'Pemanasan membuat otot siap dan mengurangi cedera.'],
+['Saat berdiri dengan tangan, tubuh bertumpu pada …',['Kepala','Kedua telapak tangan','Punggung'],1,'Kedua telapak tangan yang menahan seluruh berat badan.'],
+['Saat berdiri dengan tangan, siku harus ditekuk sebanyak mungkin.',['Benar','Salah'],1,'Siku harus lurus supaya badan kuat dan tidak ambruk.'],
+['Pandangan mata saat berdiri dengan tangan tertuju ke …',['Langit-langit','Teman di samping','Matras di antara kedua tangan'],2,'Melihat matras membantu badan tetap seimbang dan lurus.'],
+['Saat pertama belajar berdiri dengan tangan, sebaiknya dibantu teman atau guru.',['Benar','Salah'],0,'Bantuan teman menjaga keselamatan dan membuatmu lebih percaya diri.'],
+['Guling lenting diawali dengan sikap …',['Berdiri tegak','Jongkok, tangan di matras','Tengkurap'],1,'Awal yang benar: jongkok dengan kedua tangan menapak di matras.'],
+['Saat berguling, kepala bagian atas yang menjadi tumpuan.',['Benar','Salah'],1,'Dagu masuk ke dada, tumpuan ada di tengkuk dan punggung agar leher aman.'],
+['Yang dimaksud “lenting” adalah …',['Diam di tempat','Mengayun kaki lalu menolak dengan tangan hingga berdiri','Tidur telentang'],1,'Lenting = ayunan kaki + dorongan tangan sampai berdiri.'],
+['Guling lenting boleh dilakukan di lantai keras tanpa matras.',['Benar','Salah'],1,'Selalu pakai matras supaya tidak cedera.'],
+['Urutan anggota tubuh yang menyentuh lantai saat meroda adalah …',['Kaki, kaki, tangan, tangan','Tangan, tangan, kaki, kaki','Kepala, tangan, kaki'],1,'Seperti roda berputar: tangan, tangan, lalu kaki, kaki.'],
+['Meroda dilakukan dengan berputar ke depan.',['Benar','Salah'],1,'Meroda bergerak ke samping, seperti roda sepeda dilihat dari samping.'],
+['Agar rodamu indah, lengan dan kaki harus …',['Ditekuk','Lurus dan terbuka','Dilipat'],1,'Lengan dan kaki yang lurus dan terbuka membuat gerakan seperti roda.'],
+['Setelah gerakan selesai, kita berdiri tegak dan mengangkat kedua tangan sebagai sikap akhir.',['Benar','Salah'],0,'Sikap akhir menunjukkan gerakanmu selesai dengan baik.'],
+['Saat menunggu giliran senam lantai, sikap yang baik adalah …',['Mendorong teman','Antre tertib dan menyemangati teman','Berlari di atas matras'],1,'Tertib dan saling menyemangati membuat latihan aman dan menyenangkan.']];
+const OKM=['Hebat sekali! 🌟','Kamu keren! 👏','Tepat sekali, bintang PJOK! ⭐','Mantap! Pertahankan ya! 🎉','Luar biasa, kamu pintar! 🏅'];
+const NOM=['Tidak apa-apa, belajar itu proses. Ayo semangat! 💪','Hampir! Jangan menyerah, kamu pasti bisa! 🌈','Salah itu wajar, yang penting terus mencoba! 😊'];
+let S={i:0,tab:'hand',act:'hand',n:0,q:0,sc:0,ans:false,mood:'',chk:{}};
+function go(i){S.i=i;draw();window.scrollTo({top:0,behavior:'smooth'})}
+function nav(){$('#nav').innerHTML=SEC.map((s,i)=>`<button class="${i==S.i?'on':''}" onclick="go(${i})">${s}</button>`).join('')}
+function foot(){return `<div class="foot"><button class="btn alt" ${S.i==0?'disabled':''} onclick="go(${S.i-1})">◀ Kembali</button><button class="btn" ${S.i==5?'disabled':''} onclick="go(${S.i+1})">Lanjut ▶</button></div>`}
+const V={
+0(){return `<section class="card hero"><span class="tag">PJOK • Kelas 6 • Fase C</span><h1>Petualangan Senam Lantai</h1><div class="kids">${kid('hand')}${kid('roll')}${kid('wheel')}</div><p>Ayo belajar berdiri dengan tangan, guling lenting, dan meroda!</p><div class="id"><p>👤 Nama: <input id="nm" placeholder="Tulis namamu" style="font:inherit;border-radius:10px;border:0;padding:4px 8px" value="${S.nm||''}" oninput="S.nm=this.value"></p><p>📚 Mata pelajaran: PJOK • Materi: Senam Lantai</p></div><p><button class="btn" onclick="go(1)">Mulai Petualangan! 🚀</button></p></section>`},
+1(){return `<section class="card"><h2>🎯 Tujuan Belajar</h2><p>Setelah belajar, kamu bisa:</p><div class="goal"><b>1️⃣</b><span>Menjelaskan fakta, konsep, dan langkah-langkah berdiri dengan tangan, guling lenting, dan meroda.</span></div><div class="goal"><b>2️⃣</b><span>Mempraktikkan ketiga gerakan dengan aman dan benar.</span></div><div class="goal"><b>3️⃣</b><span>Bersikap tertib, berani, dan saling membantu saat berlatih.</span></div><div class="kids">${kid('hand')}</div>${foot()}</section>`},
+2(){const m=MAT[S.tab];return `<section class="card"><h2>📖 Materi Inti</h2><p>Pilih gerakan, lalu baca langkahnya.</p><div class="tabs">${Object.entries(MAT).map(([k,v])=>`<button class="${k==S.tab?'on':''}" onclick="S.tab='${k}';draw()">${v.e} ${v.n}</button>`).join('')}</div><div class="mat">${kid(S.tab)}<div><h3>${m.n}</h3><p><b>Konsep:</b> ${m.k}</p><ol>${m.s.map(x=>`<li>${x}</li>`).join('')}</ol></div></div><div class="warn">⚠️ Tips aman: ${m.t}</div><div class="warn">🔥 Ingat: lakukan pemanasan dulu, pakai matras, dan antre dengan tertib.</div>${foot()}</section>`},
+3(){const m=MAT[S.act],done=S.n;
+ const idx=(S._o&&S._k==S.act)?S._o:(S._k=S.act,S._o=m.s.map((_,i)=>i).sort((a,b)=>((a*7+3)%5)-((b*7+3)%5)||b-a));
+ const chk=['Aku sudah pemanasan','Matras sudah terpasang rapi','Aku mencoba dengan bantuan teman/guru','Gerakanku selesai dengan sikap akhir'];
+ const c=Object.values(S.chk).filter(Boolean).length;
+ return `<section class="card"><h2>🎮 Aktivitas Seru</h2><h3>Misi 1: Urutkan langkahnya!</h3><p>Ketuk langkah dari yang paling awal.</p><div class="tabs">${Object.entries(MAT).map(([k,v])=>`<button class="${k==S.act?'on':''}" onclick="S.act='${k}';S.n=0;S._o=null;draw()">${v.e} ${v.n}</button>`).join('')}</div><div class="steps">${idx.map(i=>`<button class="step ${i<done?'done':''}" onclick="pick(${i},this)">${i<done?'✅ '+(i+1)+'. ':''}${m.s[i]}</button>`).join('')}</div><div class="msg" id="am">${done==4?'🎉 Hebat! Urutanmu benar semua!':''}</div>
+ <h3>Misi 2: Praktik bersama teman</h3>${chk.map((t,i)=>`<label class="chk"><input type="checkbox" ${S.chk[i]?'checked':''} onchange="S.chk[${i}]=this.checked;draw()">${t}</label>`).join('')}<p class="stars center" aria-label="${c} bintang">${'⭐'.repeat(c)}${'☆'.repeat(4-c)}</p>${c==4?'<p class="center">🏆 Misi selesai! Kamu atlet cilik!</p>':''}${foot()}</section>`},
+4(){if(S.q>=15){const st=S.sc>=13?3:S.sc>=9?2:1;return `<section class="card center"><h2>🏁 Kuis Selesai!</h2><div class="stars">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div><h1>${S.sc} / 15</h1><p>${S.sc>=13?'Luar biasa! Kamu juara senam lantai! 🏆':S.sc>=9?'Bagus! Sedikit lagi sempurna. Baca materi lagi, ya! 💪':'Jangan sedih, ayo ulangi materi dan coba lagi. Kamu pasti bisa! 🌈'}</p><button class="btn alt" onclick="S.q=0;S.sc=0;S.ans=false;draw()">Ulangi Kuis 🔁</button> <button class="btn" onclick="go(5)">Ke Refleksi 💭</button></section>`}
+ const q=Q[S.q],tf=q[1].length==2;
+ return `<section class="card"><h2>📝 Kuis ${S.q+1} dari 15</h2><div class="bar"><i style="width:${S.q/15*100}%"></i></div><p>${tf?'Benar atau Salah?':'Pilih jawaban yang tepat.'}</p><h3>${q[0]}</h3><div id="ops">${q[1].map((o,i)=>`<button class="opt" onclick="ans(${i})">${tf?(i?'❌ ':'✅ '):'ABC'[i]+'. '}${o}</button>`).join('')}</div><div id="fb"></div><p>Skor: ⭐ ${S.sc}</p></section>`},
+5(){const sc=S.sc,st=Object.values(S.chk).filter(Boolean).length;return `<section class="card"><h2>💭 Refleksi & Umpan Balik</h2><p>${S.nm?S.nm+', ':''}skor kuismu: <b>${sc}/15</b> • misi praktik: <b>${st}/4</b> ⭐</p><p>${sc>=13?'Kamu sudah sangat paham materi senam lantai. Bantu temanmu belajar, ya!':sc>=9?'Kamu sudah cukup paham. Ulangi bagian yang masih kurang yakin.':'Ayo baca materi lagi dan ulangi kuis. Setiap latihan membuatmu lebih hebat!'}</p><h3>Bagaimana perasaanmu hari ini?</h3><div class="moods">${['😄','🙂','😐','😟'].map(e=>`<button class="${S.mood==e?'on':''}" onclick="S.mood='${e}';draw()">${e}</button>`).join('')}</div><h3>Aku bisa …</h3>${['menjelaskan langkah berdiri dengan tangan','menjelaskan langkah guling lenting','menjelaskan langkah meroda'].map((t,i)=>`<label class="chk"><input type="checkbox" ${S.chk['r'+i]?'checked':''} onchange="S.chk['r'+i]=this.checked">${t}</label>`).join('')}<h3>Satu hal baru yang kupelajari:</h3><textarea placeholder="Tulis di sini…"></textarea><p class="center">${S.mood?'Terima kasih sudah belajar! Tetap semangat berolahraga! 🏅':''}</p><div class="kids">${kid('wheel')}${kid('hand')}</div>${foot()}</section>`}};
+function pick(i,b){const m=S.n;if(i==m){S.n++;draw()}else{b.classList.add('shake');$('#am').textContent='Belum tepat, ayo pikirkan langkah yang lebih awal! 💪';setTimeout(()=>b.classList.remove('shake'),400)}}
+function ans(i){if(S.ans)return;S.ans=true;const q=Q[S.q],ok=i==q[2],bs=document.querySelectorAll('.opt');bs.forEach((b,j)=>{b.disabled=true;if(j==q[2])b.classList.add('ok');else if(j==i)b.classList.add('no')});if(ok)S.sc++;
+ const r=a=>a[Math.floor(Math.random()*a.length)];
+ $('#fb').innerHTML=`<div class="fb ${ok?'ok':'no'}"><b>${ok?r(OKM):r(NOM)}</b><br>${ok?'':'Penjelasan: '}${q[3]}</div><button class="btn" onclick="S.q++;S.ans=false;draw()">${S.q==14?'Lihat Hasil 🏁':'Soal Berikutnya ▶'}</button>`}
+function draw(){nav();$('#app').innerHTML=V[S.i]()}
+draw();
+</script>
+</body>
+</html>
